@@ -10,4 +10,12 @@ var methodOverride = require("method-override");
 // CONTROLLERS
 // not made
 
+// Set variable to express
 var app = express();
+
+// Give our app ability to use methodOverride
+app.use(methodOverride("_method"));
+
+// Allow our app to use sessions and use of cookies
+// No time out set
+app.use(session({ secret: "app" }))
