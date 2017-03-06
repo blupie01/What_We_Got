@@ -9,7 +9,8 @@ var methodOverride = require("method-override");
 var exphbs = require("express-handlebars");
 
 // CONTROLLERS
-// not made
+// NOT DONE
+var users_controller = require("./controllers/users_controller");
 
 // Set variable to express
 var app = express();
@@ -27,7 +28,36 @@ app.set("views", path.join(__dirname, "views"));
 // Registers the given template engine callback as ext.
 // app.engine(ext, callback)
 app.engine("handlebars", exphbs({
-	defaultLayout: // not chosen yet
+	defaultLayout: "main"
 }));
 // Setting the default engine extension to use when omitted.
 app.set("view engine", "handlebars");
+
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/', application_controller);
+app.use('/users', users_controller);
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// error handler
+// no stacktraces leaked to user unless in development environment
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: (app.get('env') === 'development') ? err : {}
+  });
+});
+
+
+module.exports = app;

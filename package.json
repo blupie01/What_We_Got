@@ -1,5 +1,5 @@
 {
-  "name": "package.json",
+  "name": "what_we_got",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/blupie01/What_We_Got#readme",
   "dependencies": {
+    "bcrypt": "^1.0.2",
     "body-parser": "^1.17.0",
     "cookie-parser": "^1.4.3",
     "debug": "^2.6.1",
@@ -26,6 +27,7 @@
     "express-session": "^1.15.1",
     "method-override": "^2.3.7",
     "morgan": "^1.8.1",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "sequelize": "^3.30.2"
   }
 }
