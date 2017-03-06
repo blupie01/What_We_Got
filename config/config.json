@@ -1,22 +1,22 @@
 {
   "development": {
-    "dialect": "mysql",
-    "host": "localhost",
     "username": "root",
     "password": "Avernus#1",
-    "database": "whatwegot_db"
+    "database": "whatwegot_db",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": null,
-    "database": "whatwegot_test",
+    "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": null,
-    "database": "whatwegot_production",
+    "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
