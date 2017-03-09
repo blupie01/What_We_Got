@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/blupie01/What_We_Got#readme",
   "dependencies": {
-    "bcrypt": "^1.0.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.0",
     "cookie-parser": "^1.4.3",
