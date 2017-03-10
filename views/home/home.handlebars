@@ -1,6 +1,12 @@
 Welcome To What We Got
 
-<div class="form-group">
-	<label for="api-call"></label>
-	<input type="text" id="api-call" name="api-call" placeholder="Search">
+<div class="recipe_search" action="/home/search" method="POST">
+	<label for="recipe_search">Recipe Search:</label>
+	<input type="text" id="recipe_search" name="recipe_search" placeholder="Search">
+	<button type="submit">Search</button>
+</div>
+
+<!-- partials test -->
+<div id="recipe_display">
+	{{> recipes/recipes}}
 </div>

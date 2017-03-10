@@ -12,6 +12,8 @@ var methodOverride = require("method-override");
 var application_controller = require("./controllers/application_controller");
 var home_controller = require("./controllers/home_controller");
 var users_controller = require("./controllers/users_controller");
+// Testing search controller
+// var search_controller = require("./controllers/search_controller");
 
 // Set variable to express
 var app = express();
