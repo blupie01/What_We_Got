@@ -7,7 +7,8 @@ var router = express.Router();
 
 router.post("/search", function(req, res) {
 	var search = req.body.recipe_search;
-
+	// This does show up in terminal.
+	// verified that it can reach this point
 	console.log(search);
 
 	var queryURL = "https://api.edamam.com/search?q=" + search
