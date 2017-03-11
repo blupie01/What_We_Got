@@ -1,10 +1,6 @@
 var express = require("express");
 var router = express.Router();
 
-// router.post("/search", function(req, res) {
-
-// });
-
 router.post("/search", function(req, res) {
 	var search = req.body.recipe_search;
 	// This does show up in terminal.
@@ -13,23 +9,24 @@ router.post("/search", function(req, res) {
 
 	var queryURL = "https://api.edamam.com/search?q=" + search
 	 + "&app_id=a99c054e&app_key=a6913d9b394ea2d13dbfe40ee6ef0621&from=0&to=10";
+	console.log(queryURL);
 
-	 var recipesArray = [];
+	var recipesArray = recipe_search(queryURL);
 
-	$.ajax({
-		url: queryURL,
-		method: "GET"
-	}).then(function(object) {
-		var single_Recipe = {};
-		var recipes = object.hits;
+	// $.ajax({
+	// 	url: queryURL,
+	// 	method: "GET"
+	// }).then(function(object) {
+	// 	var single_Recipe = {};
+	// 	var recipes = object.hits;
 
-		for (var i = 0; i < recipes.length; i++) {
-			// recipe name
-			single_Recipe["recipe_name"] = recipes[i].recipe.label;
+	// 	for (var i = 0; i < recipes.length; i++) {
+	// 		// recipe name
+	// 		single_Recipe["recipe_name"] = recipes[i].recipe.label;
 
-			recipesArray.push(single_Recipe);
-		};
-	});
+	// 		recipesArray.push(single_Recipe);
+	// 	};
+	// });
 
 	console.log("recipesArray " + recipesArray);
 
@@ -40,5 +37,27 @@ router.post("/search", function(req, res) {
 		recipes: recipesArray
 	});
 });
+
+var recipe_search = function(query) {
+	var array = [];
+	$.ajax({
+		url: query,
+		method: "GET"
+	}).then(function(object) {
+		var single_Recipe = {};
+		var recipes = object.hits;
+
+		for (var i = 0; i < recipes.length; i++) {
+			single_Recipe["recipe_name"] = recipes[i].recipe.label;
+
+			recipesArray.push(single_Recipe);
+			
+			Object.keys(single_Recipe).forEach(function(k) {delete single_Recipe[k]});
+		};
+		console.log(single_Recipe);
+		console.log(array);
+		return array;
+	});
+};
 
 module.exports = router;

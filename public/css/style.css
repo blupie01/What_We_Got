@@ -1,0 +1,19 @@
+@font-face {
+	font-family: coffee&milk;
+	src: url("fonts/coffee&milk.ttf");
+}
+
+@font-face {
+	font-family: littlekid;
+	src: url("fonts/littlekid.woff");
+}
+
+#main-logo {
+	font-family: littlekid;
+	font-size: 6em;
+}
+
+#username {
+	font-family: littlekid;
+	font-size: 4em;
+}

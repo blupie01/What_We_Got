@@ -3,10 +3,23 @@
 <head>
 	<meta charset="UTF-8">
 	<title>What We Got</title>
+	<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.css"> -->
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-	<h1>IN MAIN.HANDLEBARS</h1>
-	<p>
+	<h1 id="main-logo">WHAT WE GOT (main.handlebars)</h1>
+	<div id="subheader">
+		{{#if logged_in}}
+			<p id="username">Welcome {{username}}!</p>
+			<a href="#">Saved Recipes</a>
+			<a href="#">Your Recipes</a>
+			<a href="/users/sign-out">Sign Out</a>
+		{{else}}
+			<a href="/users/sign-in">Sign In</a>
+			<a href="/users/new">Sign Up</a>
+		{{/if}}
+	</div>
+<!-- 	<p>
 		{{#if logged_in}}
 			Welcome {{username}}! <br>
 			You are user: {{user_id}}. <br>
@@ -17,7 +30,9 @@
 		{{/if}}
 
 		<p>CHECKING LOGGED IN BOOL: {{logged_in}}</p>
-	</p>
+	</p> -->
 	{{{ body }}}
+	<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.js"></script> -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
 </body>
 </html>

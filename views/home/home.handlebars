@@ -1,10 +1,67 @@
 Welcome To What We Got
-
-<form class="recipe_search" action="/recipe_search/search" method="POST">
+ <!-- action="/recipe_search/search" method="POST" -->
+<!-- <form class="recipe_search" action="/recipe_search/search" method="POST">
 	<label for="recipe_search">Recipe Search:</label>
 	<input type="text" id="recipe_search" name="recipe_search" placeholder="Search">
 	<button type="submit">Search</button>
-</form>
+</form> -->
+
+<h2>Ingredients</h2>
+
+      <form action="/recipe_search/search" method="POST">
+
+        <h2>meats</h2>
+        <input type="checkbox" name="chicken"><span>chicken</span></input>
+        <input type="checkbox" name="beef"><span>beef</span></input>
+        <input type="checkbox" name="salmon"><span>salmon</span></input>
+        <input type="checkbox" name="pork"><span>pork</span></input>
+        <br>
+        <h2>fruits</h2>
+        <input type="checkbox" name="apples"><span>apples</span></input>
+        <input type="checkbox" name="bananas"><span>bananas</span></input>
+        <input type="checkbox" name="oranges"><span>oranges</span></input>
+        <input type="checkbox" name="grapes"><span>grapes</span></input>
+        <br>
+        <h2>vegatables</h2>
+        <input type="checkbox" name="carrots"><span>carrots</span></input>
+        <input type="checkbox" name="cabbage"><span>cabbage</span></input>
+        <input type="checkbox" name="lettuce"><span>lettuce</span></input>
+        <input type="checkbox" name="onion"><span>onion</span></input>
+        <input type="checkbox" name="potatoes"><span>potatoes</span></input>
+        <input type="checkbox" name="tomatoes"><span>tomatoes</span></input>
+        <input type="checkbox" name="corn"><span>corn</span></input>
+        <input type="checkbox" name="peppers"><span>peppers</span></input>
+        <br>
+        <h2>BREAD, CEREALS AND OTHER GRAIN PRODUCTS</h2>
+        <input type="checkbox" name="bread"><span>bread</span></input>
+        <input type="checkbox" name="cereal"><span>cereal</span></input>
+        <input type="checkbox" name="oatmeal"><span>oatmeal</span></input>
+        <input type="checkbox" name="pasta"><span>pasta</span></input>
+        <input type="checkbox" name="rice"><span>rice</span></input>
+        <br>
+        <h2>SEASONINGS</h2>
+        <input type="checkbox" name="salt"><span>salt</span></input>
+        <input type="checkbox" name="chicken broth"><span>Chicken Broth</span></input>
+        <input type="checkbox" name="beef broth"><span>beef broth</span></input>
+        <input type="checkbox" name="garlic powder"><span>garlic powder</span></input>
+        <input type="checkbox" name="ketchup"><span>ketchup</span></input>
+        <input type="checkbox" name="vinegar"><span>vinegar</span></input>
+        <input type="checkbox" name="italian seasoning"><span>italian seasoning</span></input>
+        <input type="checkbox" name="mustard"><span>mustard</span></input>
+        <br>
+         <h2>OILS</h2>
+        <input type="checkbox" name="olive oil"><span>Olive Oil</span></input>
+        <input type="checkbox" name="cooking oil"><span>cooking oil</span></input>
+        <br>
+         <h2>MILK AND MILK PRODUCTS</h2>
+        <input type="checkbox" name="cheese"><span>cheese</span></input>
+        <input type="checkbox" name="milk"><span>milk</span></input>
+        <input type="checkbox" name="yogurt"><span>yogurt</span></input>
+        <input type="checkbox" name="butter"><span>butter</span></input>
+        <br>
+        </br>
+        <button type="submit">Submit</button>
+      </form>
 
 <div id="recipe_display">
 	<h4>NOT IN SEARCH.HANDLEBARS</h4>
