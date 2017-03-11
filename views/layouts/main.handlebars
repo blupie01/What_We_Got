@@ -4,21 +4,25 @@
 	<meta charset="UTF-8">
 	<title>What We Got</title>
 	<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.css"> -->
+	<link rel="stylesheet" type="text/css" href="/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-	<h1 id="main-logo">WHAT WE GOT (main.handlebars)</h1>
-	<div id="subheader">
-		{{#if logged_in}}
-			<p id="username">Welcome {{username}}!</p>
-			<a href="#">Saved Recipes</a>
-			<a href="#">Your Recipes</a>
-			<a href="/users/sign-out">Sign Out</a>
-		{{else}}
-			<a href="/users/sign-in">Sign In</a>
-			<a href="/users/new">Sign Up</a>
-		{{/if}}
-	</div>
+	<header>
+		<h1 id="main-logo">WHAT WE GOT (main.handlebars)</h1>
+		<div id="subheader">
+			{{#if logged_in}}
+				<p id="username">Welcome {{username}}!</p>
+				<a class="header-buttons" href="#">Saved Recipes</a>
+				<a class="header-buttons" href="#">Your Recipes</a>
+				<a class="header-buttons" href="/users/sign-out">Sign Out</a>
+			{{else}}
+				<a class="header-buttons" href="/users/sign-in">Sign In</a>
+				<a class="header-buttons" href="/users/new">Sign Up</a>
+			{{/if}}
+		</div>
+	</header>
+
 <!-- 	<p>
 		{{#if logged_in}}
 			Welcome {{username}}! <br>
@@ -32,6 +36,9 @@
 		<p>CHECKING LOGGED IN BOOL: {{logged_in}}</p>
 	</p> -->
 	{{{ body }}}
+	<footer>
+		<p>&copy; Copyright 2017 Nuno Tavares, John Krug, Jeffrey Chou</p>
+	</footer>
 	<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.js"></script> -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
 </body>

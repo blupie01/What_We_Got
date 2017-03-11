@@ -1,6 +1,21 @@
 @font-face {
-	font-family: coffee&milk;
+	font-family: coffee_and_milk;
 	src: url("fonts/coffee&milk.ttf");
+}
+
+@font-face {
+	font-family: calm_waters;
+	src: url("fonts/calm_waters.otf");
+}
+
+@font-face {
+	font-family: gloss_and_bloom;
+	src: url("fonts/gloss_and_bloom.ttf");
+}
+
+@font-face {
+	font-family: shadded_south;
+	src: url("fonts/shadded_south.ttf");
 }
 
 @font-face {
@@ -8,12 +23,41 @@
 	src: url("fonts/littlekid.woff");
 }
 
+body {
+
+}
+
+header {
+	/*padding: 30px 0px;*/
+	background-color: #9340ed;
+	text-align: center;
+}
+
 #main-logo {
-	font-family: littlekid;
-	font-size: 6em;
+	font-family: coffee_and_milk;
+	font-size: 5em;
+	/*background-color: #9340ed;*/
+	color: #2be2d6;
+	margin-bottom: 15px;
+
+}
+
+#subheader {
+	/*position: relative;*/
+	/*top: 10px;*/
+	/*text-align: center;*/
 }
 
 #username {
 	font-family: littlekid;
-	font-size: 4em;
+	font-size: 2em;
+}
+
+.header-buttons {
+	font-size: 2em;
+	font-family: calm_waters;
+	background-color: blue;
+	padding: 0px 40px;
+	color: white;
+	margin: 55px 0px;
 }
