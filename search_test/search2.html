@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <h2>Ingredients</h2>
+
+      <form id="ingredients-form">
+
+        <h2>meats</h2>
+        <input type="checkbox" name="Int1" value="chicken"><span>chicken</span></input>
+        <input type="checkbox" name="Int1" value="beef"><span>beef</span></input>
+        <input type="checkbox" name="Int1" value="salmon"><span>salmon</span></input>
+        <input type="checkbox" name="Int1" value="pork"><span>pork</span></input>
+        <br>
+        <h2>fruits</h2>
+        <input type="checkbox" name="Int2" value="apples"><span>apples</span></input>
+        <input type="checkbox" name="Int2" value="bananas"><span>bananas</span></input>
+        <input type="checkbox" name="Int2" value="oranges"><span>oranges</span></input>
+        <input type="checkbox" name="Int2" value="grapes"><span>grapes</span></input>
+        <br>
+        <h2>vegetables</h2>
+        <input type="checkbox" name="Int3" value="carrots"><span>carrots</span></input>
+        <input type="checkbox" name="Int3" value="cabbage"><span>cabbage</span></input>
+        <input type="checkbox" name="Int3" value="lettuce"><span>lettuce</span></input>
+        <input type="checkbox" name="Int3" value="onion"><span>onion</span></input>
+        <input type="checkbox" name="Int3" value="potatoes"><span>potatoes</span></input>
+        <input type="checkbox" name="Int3" value="tomatoes"><span>tomatoes</span></input>
+        <input type="checkbox" name="Int3" value="corn"><span>corn</span></input>
+        <input type="checkbox" name="Int3" value="peppers"><span>peppers</span></input>
+        <br>
+        <h2>BREAD, CEREALS AND OTHER GRAIN PRODUCTS</h2>
+        <input type="checkbox" name="Int4" value="bread"><span>bread</span></input>
+        <input type="checkbox" name="Int4" value="cereal"><span>cereal</span></input>
+        <input type="checkbox" name="Int4" value="oatmeal"><span>oatmeal</span></input>
+        <input type="checkbox" name="Int4" value="pasta"><span>pasta</span></input>
+        <input type="checkbox" name="Int4" value="rice"><span>rice</span></input>
+        <br>
+        <h2>SEASONINGS</h2>
+        <input type="checkbox" name="Int5" value="salt"><span>salt</span></input>
+        <input type="checkbox" name="Int5" value="chicken broth"><span>Chicken Broth</span></input>
+        <input type="checkbox" name="Int5" value="beef broth"><span>beef broth</span></input>
+        <input type="checkbox" name="Int5" value="garlic powder"><span>garlic powder</span></input>
+        <input type="checkbox" name="Int5" value="ketchup"><span>ketchup</span></input>
+        <input type="checkbox" name="Int5" value="vinegar"><span>vinegar</span></input>
+        <input type="checkbox" name="Int5" value="italian seasoning"><span>italian seasoning</span></input>
+        <input type="checkbox" name="Int5" value="mustard"><span>mustard</span></input>
+        <br>
+         <h2>OILS</h2>
+        <input type="checkbox" name="Int6" value="olive oil"><span>Olive Oil</span></input>
+        <input type="checkbox" name="Int6" value="cooking oil"><span>cooking oil</span></input>
+        <br>
+         <h2>MILK AND MILK PRODUCTS</h2>
+        <input type="checkbox" name="Int7" value="cheese"><span>cheese</span></input>
+        <input type="checkbox" name="Int7" value="milk"><span>milk</span></input>
+        <input type="checkbox" name="Int7" value="yogurt"><span>yogurt</span></input>
+        <input type="checkbox" name="Int7" value="butter"><span>butter</span></input>
+        <br>
+        </br>
+        <button id="submit" type="submit" value="Get Values" >Submit</button>
+    </form>
+
+    <div id='api'></div>
+
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <script type="text/javascript">
+
+
+//limits checkboxes by category
+//possibly use switch
+jQuery(function(){
+    var max = 1;
+    var checkboxes = $('input[name="Int1"]');
+                       
+    checkboxes.change(function(){
+        var current = checkboxes.filter(':checked').length;
+        checkboxes.filter(':not(:checked)').prop('disabled', current >= max);
+    });
+});
+jQuery(function(){
+    var max = 2;
+    var checkboxes = $('input[name="Int2"]');
+                       
+    checkboxes.change(function(){
+        var current = checkboxes.filter(':checked').length;
+        checkboxes.filter(':not(:checked)').prop('disabled', current >= max);
+    });
+});
+jQuery(function(){
+    var max = 6;
+    var checkboxes = $('input[name="Int3"]');
+                       
+    checkboxes.change(function(){
+        var current = checkboxes.filter(':checked').length;
+        checkboxes.filter(':not(:checked)').prop('disabled', current >= max);
+    });
+});
+jQuery(function(){
+    var max = 1;
+    var checkboxes = $('input[name="Int4"]');
+                       
+    checkboxes.change(function(){
+        var current = checkboxes.filter(':checked').length;
+        checkboxes.filter(':not(:checked)').prop('disabled', current >= max);
+    });
+});
+jQuery(function(){
+    var max = 8;
+    var checkboxes = $('input[name="Int5"]');
+                       
+    checkboxes.change(function(){
+        var current = checkboxes.filter(':checked').length;
+        checkboxes.filter(':not(:checked)').prop('disabled', current >= max);
+    });
+});
+jQuery(function(){
+    var max = 1;
+    var checkboxes = $('input[name="Int6"]');
+                       
+    checkboxes.change(function(){
+        var current = checkboxes.filter(':checked').length;
+        checkboxes.filter(':not(:checked)').prop('disabled', current >= max);
+    });
+});
+jQuery(function(){
+    var max = 4;
+    var checkboxes = $('input[name="Int7"]');
+                       
+    checkboxes.change(function(){
+        var current = checkboxes.filter(':checked').length;
+        checkboxes.filter(':not(:checked)').prop('disabled', current >= max);
+    });
+});
+
+//grabs values of selected checkboxes and pushes them to an array
+var values = [];
+        $("#submit").on("click", function(event) {
+            event.preventDefault();
+
+                for (var i = 1; i <= 7; i++) {
+
+                var checkboxes = document.querySelectorAll('input[name=Int' + i + ']:checked');
+                Array.prototype.forEach.call(checkboxes, function(el) {
+                    values.push(el.value);
+                });
+            }
+            console.log(values);
+            // for(var i = 0; i < values.length-1; i++) {
+            //     values[i] = values[i] + "+";
+            // };
+            var searchTerms = values.join("+");
+            var queryString = "http://api.edamam.com/search?q=" + searchTerms + "&app_id=a99c054e&app_key=a6913d9b394ea2d13dbfe40ee6ef0621&from=0&to=1";
+            // console.log(queryURL)
+            testest(values, queryString);
+            // return values;
+        });
+//------------------------------------------------------------------------------------------------------------------------------------
+// console.log(values);
+//------------------------------------------------------------------------------------------------------------------------------------
+            // var searchTest = "chicken+carrots+peppers";
+function testest(values, queryString){
+    console.log(queryString)
+    $.ajax({
+        url: queryString,
+        method: "GET"
+    }).done(function(object) {
+        console.log(object.hits);
+        var array = object.hits;
+        var singleRecipe = $("<div>");
+        for (var i = 0; i < array.length; i++) {
+            // recipe name
+            var recipeDiv = $("<h2>Recipe: " + array[i].recipe.label + "</h2>");
+            singleRecipe.append(recipeDiv);
+            // servings
+            var servingsDiv = $("<div id='servings'><h3>Servings: " + array[i].recipe.yield + "</h3></div>");
+            singleRecipe.append(servingsDiv);
+            // calories
+            var calories = Math.round(array[i].recipe.calories);
+            var caloriesDiv = $("<div id='calories'>");
+            caloriesDiv.append("Calories: " + calories);
+            singleRecipe.append(caloriesDiv);
+            // cautions
+            var cautions = array[i].recipe.cautions;
+            // cautions.push("test");
+            // cautions.push("test2");
+            if (cautions.length == 0) {
+                singleRecipe.append("<div id='cautions'><h3>No Cautions</h3></div>");
+            } else {
+                var cautionsDiv = $("<div id='cautions'>");
+                var cautionsList = $("<ul id='caution_list'>Cautions:</ul>");
+                for (var c = 0; c < cautions.length; c++) {
+                    cautionsList.append("<li>" + cautions[c] + "</li>");
+                };
+                cautionsDiv.append(cautionsList);
+                singleRecipe.append(cautionsDiv);
+            };
+            // diet labels
+            var dietLabels = array[i].recipe.dietLabels;
+            var dietLabelsDiv = $("<div id='diet_labels'>");
+            var dietLabelsList = $("<ul id='diet_labels_list'><h3>Diet Labels</h3></ul>");
+            for (var label = 0; label < dietLabels.length; label++) {
+                dietLabelsList.append("<li>" + dietLabels[label] + "</li>");
+            };
+            dietLabelsDiv.append(dietLabelsList);
+            singleRecipe.append(dietLabelsDiv);
+            // digest
+            // wtf am i looking at
+            // health labels NOT DONE PROPERLY
+            var healthLabels = array[i].recipe.healthLabels;
+            var healthLabelsDiv = $("<div id='health_labels'>");
+            var healthLabelsList = $("<ul id='health_labels_list'><h3>Health Labels</h2></ul>");
+            for (var hLabels = 0; hLabels < healthLabels.length; hLabels++) {
+                healthLabelsList.append("<li>" + healthLabels[hLabels] + "</li>");
+            };
+            healthLabelsDiv.append(healthLabelsList);
+            singleRecipe.append(healthLabelsDiv);
+            // recipe image
+            var recipeImg = array[i].recipe.image;
+            singleRecipe.append("<br><img src=" + recipeImg + ">");
+            // ingredient lines
+            var ingredients = array[i].recipe.ingredientLines;
+            console.log(ingredients);
+            var ingredientsDiv = $("<div id='ingredients'>");
+            var ingredientsList = $("<ul id='ingredients_list'>Ingredients:</ul>");
+            for (var ingredient = 0; ingredient < ingredients.length; ingredient++) {
+                ingredientsList.append("<li>" + ingredients[ingredient] + "</li>");
+            };
+            ingredientsDiv.append(ingredientsList);
+            singleRecipe.append(ingredientsDiv);
+
+            // SORTING INGREDIENTS INTO HAVE AND NEED--------------------------------------------------------------------------
+
+            // // NEED
+            // console.log("VALUES");
+            // console.log(values);
+            // console.log("INGREDIENTS");
+            // console.log(ingredients);
+
+            // for (var i = 0; i < values.length; i++) {
+            //     console.log("CURRENT ITEM: " + values[i]);
+            //     // var valSplit = values[i].split(" ");
+            //     // console.log("SPLIT ITEM: " + valSplit);
+            //     for (var k = 0; k < ingredients.length; k++) {
+            //         console.log("CURRENT INGREDIENT: " + ingredients[k]);
+            //         // var ingSplit = ingredients[k].split(" ");
+            //         // console.log(ingSplit);
+            //     };
+            // };
+
+            var shoppingList = ingredients.slice(0, ingredients.length);
+
+            for (var i = 0; i < shoppingList.length; i++) {
+                for (var j = 0; j < values.length; j++) {
+                    if (shoppingList[i].indexOf(values[j] ) > -1)  {
+
+                        shoppingList.splice(shoppingList.indexOf(shoppingList[i]), 1);
+                    }
+                }
+            }
+
+            // for (var i = 0; i < ingredients.length; i++) {
+            //     if(values.indexOf(ingredients[i]) == -1) {
+            //         shoppingList.push(ingredients[i]);
+            //     };
+            // };
+
+            console.log("HERE: " + shoppingList);
+
+            function filterTest(val) {
+                return ingredients.filter(function(el) {
+                    return el.toLowerase().indexOf(val.toLowerCase()) > -1;
+                });
+            };
+
+
+
+//-------------------------------------------------------------------------------------------------------------------------------
+
+
+            // ingredients
+            // don't think this will be useful
+            // gives ingredients again and also a key for weight this amount of ingredient will have
+            // recipe source. link to get cooking instructions
+            var recipeURL = array[i].recipe.url;
+            var link = $("<a href=" + recipeURL + ">Cooking Instructions @ " + array[i].recipe.source + "</a>");
+            singleRecipe.append(link);
+            singleRecipe.append($("<p>=======================================================================</p>"));
+        };
+    $("#api").append(singleRecipe);
+});
+}
+</script>
+</body>
+</html>
