@@ -1,9 +1,11 @@
 <h3>IN RECIPES PARTIAL</h3>
-<ul>
 {{#each recipes}}
-	
-	<li>
-		<h2>{{this.recipe_name}}</h2>
+	<div class="single_recipe">
+		<h2>{{this.recipe_label}}
+	</div>
+{{each}}
+<!-- 	<li>
+		<h2>{{this.recipe_name}}</h2> -->
 		<!-- {{#if ../purchase_coupon}} -->
 			<!-- {{#if ../../logged_in}} if you want to access properties in a partial, you must go up -->
 <!-- 				<form data-couponid="{{this.id}}">
@@ -28,7 +30,7 @@
 		Company Name: {{this.company_name}}
 		<br>
 		Coupon Code: {{this.coupon_code}} -->
-	</li>
+	<!-- </li> -->
 
-{{/each}}
-</ul>
+<!-- {{/each}} -->
+<!-- </ul> -->

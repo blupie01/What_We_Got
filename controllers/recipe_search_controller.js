@@ -13,21 +13,6 @@ router.post("/search", function(req, res) {
 
 	var recipesArray = recipe_search(queryURL);
 
-	// $.ajax({
-	// 	url: queryURL,
-	// 	method: "GET"
-	// }).then(function(object) {
-	// 	var single_Recipe = {};
-	// 	var recipes = object.hits;
-
-	// 	for (var i = 0; i < recipes.length; i++) {
-	// 		// recipe name
-	// 		single_Recipe["recipe_name"] = recipes[i].recipe.label;
-
-	// 		recipesArray.push(single_Recipe);
-	// 	};
-	// });
-
 	console.log("recipesArray " + recipesArray);
 
 	res.render("search/search", {
@@ -37,27 +22,5 @@ router.post("/search", function(req, res) {
 		recipes: recipesArray
 	});
 });
-
-var recipe_search = function(query) {
-	var array = [];
-	$.ajax({
-		url: query,
-		method: "GET"
-	}).then(function(object) {
-		var single_Recipe = {};
-		var recipes = object.hits;
-
-		for (var i = 0; i < recipes.length; i++) {
-			single_Recipe["recipe_name"] = recipes[i].recipe.label;
-
-			recipesArray.push(single_Recipe);
-			
-			Object.keys(single_Recipe).forEach(function(k) {delete single_Recipe[k]});
-		};
-		console.log(single_Recipe);
-		console.log(array);
-		return array;
-	});
-};
 
 module.exports = router;
