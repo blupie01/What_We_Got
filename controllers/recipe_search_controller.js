@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 
+// below router is most likely not useful
 router.post("/search", function(req, res) {
 	var search = req.body.recipe_search;
 	// This does show up in terminal.

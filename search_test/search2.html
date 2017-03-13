@@ -222,6 +222,7 @@ function testest(values, queryString){
             singleRecipe.append(ingredientsDiv);
 
             // SORTING INGREDIENTS INTO HAVE AND NEED--------------------------------------------------------------------------
+            // This should be outside the for loop.
             var shoppingList = ingredients.slice(0, ingredients.length);
 
             for (var x = 0; x < shoppingList.length; x++) {

@@ -83,7 +83,13 @@ $("#submit").on("click", function(event) {
     $("body").append( template({recipeList: testobject}) );
     // ^ WE PROBABLY NEED TO DO A CALLBACK .......maybe
     values = [];
+    //clear form
+    $("input[type='checkbox']").prop("checked", false);
 });
+
+// function clearForm() {
+//     $('input[name="Int7"]').val('');
+// };
 
 function getRecipes(values, queryString){
     $.ajax({
