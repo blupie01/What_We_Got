@@ -56,7 +56,15 @@
     <div id='api'></div>
 </div>
 
-<div id="recipe_display">
-	<!-- <h4>NOT IN SEARCH.HANDLEBARS</h4> -->
+<!-- <div id="recipe_display">
+	<h4>NOT IN SEARCH.HANDLEBARS</h4>
 	{{> recipes/recipes}}
+</script> -->
+<script type='text/template' id='test'>
+{{#each recipeList}}
+      <div class="single_recipe">
+            <h2>{{recipe_label}}</h2>
+      </div>
+{{/each}}
+</script>
 </div>
