@@ -4,3 +4,68 @@
 <div id="recipe_display">
 	{{> recipes/recipes}}
 </div>
+
+{{!-----------------------------------------------------------------------}}
+
+<div id="search-container">
+    <h2>Ingredients</h2>
+        <form id="ingredients-form" action="home/search" method="POST">
+            <h2>meats</h2>
+            <input type="checkbox" name="Int1" value="chicken"><span>chicken</span></input>
+            <input type="checkbox" name="Int1" value="beef"><span>beef</span></input>
+            <input type="checkbox" name="Int1" value="salmon"><span>salmon</span></input>
+            <input type="checkbox" name="Int1" value="pork"><span>pork</span></input>
+            <br>
+            <h2>fruits</h2>
+            <input type="checkbox" name="Int2" value="apples"><span>apples</span></input>
+            <input type="checkbox" name="Int2" value="bananas"><span>bananas</span></input>
+            <input type="checkbox" name="Int2" value="oranges"><span>oranges</span></input>
+            <input type="checkbox" name="Int2" value="grapes"><span>grapes</span></input>
+            <br>
+            <h2>vegetables</h2>
+            <input type="checkbox" name="Int3" value="carrots"><span>carrots</span></input>
+            <input type="checkbox" name="Int3" value="cabbage"><span>cabbage</span></input>
+            <input type="checkbox" name="Int3" value="lettuce"><span>lettuce</span></input>
+            <input type="checkbox" name="Int3" value="onion"><span>onion</span></input>
+            <input type="checkbox" name="Int3" value="potatoes"><span>potatoes</span></input>
+            <input type="checkbox" name="Int3" value="tomatoes"><span>tomatoes</span></input>
+            <input type="checkbox" name="Int3" value="corn"><span>corn</span></input>
+            <input type="checkbox" name="Int3" value="peppers"><span>peppers</span></input>
+            <br>
+            <h2>BREAD, CEREALS AND OTHER GRAIN PRODUCTS</h2>
+            <input type="checkbox" name="Int4" value="bread"><span>bread</span></input>
+            <input type="checkbox" name="Int4" value="cereal"><span>cereal</span></input>
+            <input type="checkbox" name="Int4" value="oatmeal"><span>oatmeal</span></input>
+            <input type="checkbox" name="Int4" value="pasta"><span>pasta</span></input>
+            <input type="checkbox" name="Int4" value="rice"><span>rice</span></input>
+            <br>
+            <h2>SEASONINGS</h2>
+            <input type="checkbox" name="Int5" value="salt"><span>salt</span></input>
+            <input type="checkbox" name="Int5" value="chicken broth"><span>Chicken Broth</span></input>
+            <input type="checkbox" name="Int5" value="beef broth"><span>beef broth</span></input>
+            <input type="checkbox" name="Int5" value="garlic powder"><span>garlic powder</span></input>
+            <input type="checkbox" name="Int5" value="ketchup"><span>ketchup</span></input>
+            <input type="checkbox" name="Int5" value="vinegar"><span>vinegar</span></input>
+            <input type="checkbox" name="Int5" value="italian seasoning"><span>italian seasoning</span></input>
+            <input type="checkbox" name="Int5" value="mustard"><span>mustard</span></input>
+            <br>
+            <h2>OILS</h2>
+            <input type="checkbox" name="Int6" value="olive oil"><span>Olive Oil</span></input>
+            <input type="checkbox" name="Int6" value="cooking oil"><span>cooking oil</span></input>
+            <br>
+            <h2>MILK AND MILK PRODUCTS</h2>
+            <input type="checkbox" name="Int7" value="cheese"><span>cheese</span></input>
+            <input type="checkbox" name="Int7" value="milk"><span>milk</span></input>
+            <input type="checkbox" name="Int7" value="yogurt"><span>yogurt</span></input>
+            <input type="checkbox" name="Int7" value="butter"><span>butter</span></input>
+            <br>
+            </br>
+            <button id="submit" type="submit">Submit</button>
+        </form>
+    <div id='api'></div>
+</div>
+
+<div id="recipe_display">
+	<h4>NOT IN SEARCH.HANDLEBARS</h4>
+	{{> recipes/recipes}}
+</div>

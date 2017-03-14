@@ -6,17 +6,6 @@ var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var session = require("express-session");
 var methodOverride = require("method-override");
-//test
-// var jsdom = require("jsdom");
-
-// require("jsdom").env("", function(err, window) {
-//    if (err) {
-//        console.error(err);
-//        return;
-//    }
-
-//    var $ = require("jquery")(window);
-// });
 
 // CONTROLLERS
 // NOT DONE

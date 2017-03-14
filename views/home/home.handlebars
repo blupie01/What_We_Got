@@ -1,3 +1,17 @@
+<div id="subheader">
+      {{#if logged_in}}
+            <p id="username">Welcome {{username}}!</p>
+            <a class="header-buttons" href="#">Saved Recipes</a>
+            <a class="header-buttons" href="#">Your Recipes</a>
+            <a class="header-buttons" href="/users/sign-out">Sign Out</a>
+      {{else}}
+            <a class="header-buttons" href="/users/sign-in">Sign In</a>
+            <a class="header-buttons" href="/users/new">Sign Up</a>
+            <p>If you really don't to sign in, please click on the following link: <a class="header-buttons" href="http://www.google.com">Search<a></p>
+      {{/if}}
+</div>
+
+{{#if logged_in}}
 <div id="search-container">
     <h2>Ingredients</h2>
         <form id="ingredients-form" action="home/search" method="POST">
@@ -56,15 +70,8 @@
     <div id='api'></div>
 </div>
 
-<!-- <div id="recipe_display">
+<div id="recipe_display">
 	<h4>NOT IN SEARCH.HANDLEBARS</h4>
 	{{> recipes/recipes}}
-</script> -->
-<script type='text/template' id='test'>
-{{#each recipeList}}
-      <div class="single_recipe">
-            <h2>{{recipe_label}}</h2>
-      </div>
-{{/each}}
-</script>
 </div>
+{{/if}}
