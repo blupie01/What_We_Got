@@ -73,7 +73,7 @@ $("#submit").on("click", function(event) {
         });
     };
     var searchTerms = values.join("+");
-    var queryString = "http://api.edamam.com/search?q=" + searchTerms + "&app_id=a99c054e&app_key=a6913d9b394ea2d13dbfe40ee6ef0621&from=0&to=10";
+    var queryString = "http://api.edamam.com/search?q=" + searchTerms + "&app_id=a99c054e&app_key=a6913d9b394ea2d13dbfe40ee6ef0621&from=0&to=5";
     getRecipes(values, queryString);
 
     // NOT WORKING ----------------------------------------------------------
@@ -94,27 +94,29 @@ function getRecipes(values, queryString){
     }).done(function(object) {
         var array = object.hits;
         // var recipeList = [];
+        var recipes = [];
 
         for (var i = 0; i < array.length; i++) {
-            var singleRecipe = $("<div class='single_recipe'>");
+            var dataHolder = {};
+            var singleRecipe = $("<div class='single_recipe'" + "value='" + array[i].recipe.label + "'>");
             // var singleRecipe = {};
             // recipe name
-            // singleRecipe["recipe_label"] = array[i].recipe.label;
+            dataHolder["recipe_label"] = array[i].recipe.label;
             var recipeDiv = $("<h2>Recipe: " + array[i].recipe.label + "</h2>");
             singleRecipe.append(recipeDiv);
             // servings
-            // singleRecipe["servings"] = array[i].recipe.yield;
+            dataHolder["servings"] = array[i].recipe.yield;
             var servingsDiv = $("<div id='servings'><h3>Servings: " + array[i].recipe.yield + "</h3></div>");
             singleRecipe.append(servingsDiv);
             // calories
             var calories = Math.round(array[i].recipe.calories);
-            // singleRecipe["calories"] = calories;
+            dataHolder["calories"] = calories;
             var caloriesDiv = $("<div id='calories'>");
             caloriesDiv.append("Calories: " + calories);
             singleRecipe.append(caloriesDiv);
             // cautions
             var cautions = array[i].recipe.cautions;
-            // singleRecipe["cautions"] = cautions;
+            dataHolder["cautions"] = cautions;
 
             if (cautions.length == 0) {
                 singleRecipe.append("<div id='cautions'><h3>No Cautions</h3></div>");
@@ -129,7 +131,7 @@ function getRecipes(values, queryString){
             };
             // diet labels
             var dietLabels = array[i].recipe.dietLabels;
-            // singleRecipe["diet_labels"] = dietLabels;
+            dataHolder["diet_labels"] = dietLabels;
             var dietLabelsDiv = $("<div id='diet_labels'>");
             var dietLabelsList = $("<ul id='diet_labels_list'><h3>Diet Labels</h3></ul>");
             for (var label = 0; label < dietLabels.length; label++) {
@@ -141,7 +143,7 @@ function getRecipes(values, queryString){
             // wtf am i looking at
             // health labels NOT DONE PROPERLY
             var healthLabels = array[i].recipe.healthLabels;
-            // singleRecipe["health_labels"] = healthLabels;
+            dataHolder["health_labels"] = healthLabels;
             var healthLabelsDiv = $("<div id='health_labels'>");
             var healthLabelsList = $("<ul id='health_labels_list'><h3>Health Labels</h3></ul>");
             for (var hLabels = 0; hLabels < healthLabels.length; hLabels++) {
@@ -151,17 +153,17 @@ function getRecipes(values, queryString){
             singleRecipe.append(healthLabelsDiv);
             // recipe image
             var recipeImg = array[i].recipe.image;
-            // singleRecipe["img"] = recipeImg;
+            dataHolder["img"] = recipeImg;
             singleRecipe.append("<br><img src=" + recipeImg + ">");
             // recipe source. link to get cooking instructions
             var recipeURL = array[i].recipe.url;
-            // singleRecipe["url"] = recipeURL;
+            dataHolder["url"] = recipeURL;
             var link = $("<a href=" + recipeURL + ">Cooking Instructions @ " + array[i].recipe.source + "</a>");
             singleRecipe.append(link);
             // singleRecipe.append($("<p>=======================================================================</p>"));
             // ingredient lines
             var ingredients = array[i].recipe.ingredientLines;
-            // singleRecipe["ingredients"] = ingredients;
+            dataHolder["ingredients"] = ingredients;
             console.log("ALL INGREDIENTS");
             console.log(ingredients);
             var ingredientsDiv = $("<div id='ingredients'>");
@@ -185,7 +187,7 @@ function getRecipes(values, queryString){
             };
             // console.log("SHOPPING LIST");
             // console.log(shoppingList);
-            // singleRecipe["shopping_list"] = shoppingList;
+            dataHolder["shopping_list"] = shoppingList;
 
             //NEED FOR LOOP HERE TO DISPLAY SHOPPING LIST ON SCREEN
             var shopListDiv = $("<div id='shopping_list_div'>");
@@ -196,21 +198,51 @@ function getRecipes(values, queryString){
             shopListDiv.append(shopListWithHeader);
             singleRecipe.append(shopListDiv);
 
-            singleRecipe.append("<br><button class='save'>Save It!</button><br>");
+            singleRecipe.append("<br><button class='save' id=" + i + " value='" + array[i].recipe.label + "' data-recipe='" + dataHolder + "''>Save It!</button><br>");
 
             singleRecipe.append($("<p>=======================================================================</p>"));
+            console.log("HERE");
+            console.log(dataHolder);
             // console.log(singleRecipe);
             // recipeList.push(singleRecipe);
+
+            recipes.push(dataHolder)
+
             $("#api").append(singleRecipe);
         };
         // console.log(recipeList);
+        console.log(recipes);
         // return recipeList;
         // $("#api").append(singleRecipe);
+        // var test = document.getElementById("api").innerHTML;
+        // console.log(test);
+        $(".save").on("click", function(event) {
+            event.preventDefault();
+            var id = parseInt($(this).attr("id"));
+            console.log("STUFF",recipes[id]);
+            // var getBackMyJSON = $(this).data('recipe');
+            // for(var i = 0; i < getBackMyJSON.length; i++) {
+            //     console.log(getBackMyJSON[i]);
+            // };
+            // console.log(getBackMyJSON);
+    // console.log(this);
+    // console.log("HERE");
+    //         var blah = $(this).attr("data");
+
+    //         console.log(this.data);
+    //         JSON.parse(blah);
+    // console.log(blah);
+
+    //     var zzz = blah.recipe_label;
+    //     console.log(zzz);
+
+
+});
     });
 };
 
-$(".save").on("click", function(event) {
-    event.preventDefault();
-
-    
-})
+// $(".save").on("click", function(event) {
+//     // event.preventDefault();
+//     console.log("HERE");
+//     // console.log($(this).data);
+// });
