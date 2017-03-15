@@ -76,12 +76,6 @@ $("#submit").on("click", function(event) {
     var queryString = "http://api.edamam.com/search?q=" + searchTerms + "&app_id=a99c054e&app_key=a6913d9b394ea2d13dbfe40ee6ef0621&from=0&to=5";
     getRecipes(values, queryString);
 
-    // NOT WORKING ----------------------------------------------------------
-    // var testobject = [{recipe_label: "HI"}, {recipe_label: "BYE"}];
-    // var source = $("#test").html();
-    // var template = Handlebars.compile(source);
-    // $("body").append( template({recipeList: testobject}) );
-    // ^ WE PROBABLY NEED TO DO A CALLBACK .......maybe
     values = [];
     //clear form
     $("input[type='checkbox']").prop("checked", false);
@@ -139,9 +133,8 @@ function getRecipes(values, queryString){
             };
             dietLabelsDiv.append(dietLabelsList);
             singleRecipe.append(dietLabelsDiv);
-            // digest
-            // wtf am i looking at
-            // health labels NOT DONE PROPERLY
+
+            // health labels
             var healthLabels = array[i].recipe.healthLabels;
             dataHolder["health_labels"] = healthLabels;
             var healthLabelsDiv = $("<div id='health_labels'>");
@@ -160,7 +153,6 @@ function getRecipes(values, queryString){
             dataHolder["url"] = recipeURL;
             var link = $("<a href=" + recipeURL + ">Cooking Instructions @ " + array[i].recipe.source + "</a>");
             singleRecipe.append(link);
-            // singleRecipe.append($("<p>=======================================================================</p>"));
             // ingredient lines
             var ingredients = array[i].recipe.ingredientLines;
             dataHolder["ingredients"] = ingredients;
@@ -206,9 +198,9 @@ function getRecipes(values, queryString){
             // console.log(singleRecipe);
             // recipeList.push(singleRecipe);
 
-            recipes.push(dataHolder)
+            recipes.push(dataHolder);
 
-            $("#api").append(singleRecipe);
+            $("#api_search").append(singleRecipe);
         };
         // console.log(recipeList);
         console.log(recipes);
@@ -219,25 +211,9 @@ function getRecipes(values, queryString){
         $(".save").on("click", function(event) {
             event.preventDefault();
             var id = parseInt($(this).attr("id"));
-            console.log("STUFF",recipes[id]);
-            // var getBackMyJSON = $(this).data('recipe');
-            // for(var i = 0; i < getBackMyJSON.length; i++) {
-            //     console.log(getBackMyJSON[i]);
-            // };
-            // console.log(getBackMyJSON);
-    // console.log(this);
-    // console.log("HERE");
-    //         var blah = $(this).attr("data");
-
-    //         console.log(this.data);
-    //         JSON.parse(blah);
-    // console.log(blah);
-
-    //     var zzz = blah.recipe_label;
-    //     console.log(zzz);
-
-
-});
+            console.log("STUFF", recipes[id]);
+            this.disabled = true;
+        });
     });
 };
 
