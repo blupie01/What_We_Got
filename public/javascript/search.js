@@ -190,7 +190,7 @@ function getRecipes(values, queryString){
             shopListDiv.append(shopListWithHeader);
             singleRecipe.append(shopListDiv);
 
-            singleRecipe.append("<br><button class='save' id=" + i + " value='" + array[i].recipe.label + "' data-recipe='" + dataHolder + "''>Save It!</button><br>");
+            singleRecipe.append("<br><button class='save' id=" + i + " value='" + array[i].recipe.label + "'>Save It!</button><br>");
 
             singleRecipe.append($("<p>=======================================================================</p>"));
             console.log("HERE");
@@ -204,6 +204,11 @@ function getRecipes(values, queryString){
         };
         // console.log(recipeList);
         console.log(recipes);
+
+        $.post("/recipe_search/update_database", recipes, function(response) {
+            alert("the response from the server is: " + response + ". If 200 then that's good. If 500 then there was something wrong.");
+        });
+
         // return recipeList;
         // $("#api").append(singleRecipe);
         // var test = document.getElementById("api").innerHTML;
@@ -212,7 +217,17 @@ function getRecipes(values, queryString){
             event.preventDefault();
             var id = parseInt($(this).attr("id"));
             console.log("STUFF", recipes[id]);
+
+            var data = recipes[id];
+            console.log(data);
+
+            //if there is time, should be able to set disable based on if recipe has been saved from
+            //previous session
             this.disabled = true;
+
+            $.post("/users/save_recipe", data, function(response) {
+                alert("the response from the server is: " + response + ". If 200 then that's good. If 500 then there was something wrong.");
+            });
         });
     });
 };
