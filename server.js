@@ -13,7 +13,6 @@ var application_controller = require("./controllers/application_controller");
 var home_controller = require("./controllers/home_controller");
 var users_controller = require("./controllers/users_controller");
 // Testing search controller
-var recipe_search_controller = require("./controllers/recipe_search_controller");
 
 // Set variable to express
 var app = express();
@@ -47,7 +46,7 @@ app.use("/", application_controller);
 app.use("/home", home_controller);
 app.use("/users", users_controller);
 //test
-app.use("/recipe_search", recipe_search_controller);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

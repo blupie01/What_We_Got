@@ -205,10 +205,6 @@ function getRecipes(values, queryString){
         // console.log(recipeList);
         console.log(recipes);
 
-        $.post("/recipe_search/update_database", recipes, function(response) {
-            alert("the response from the server is: " + response + ". If 200 then that's good. If 500 then there was something wrong.");
-        });
-
         // return recipeList;
         // $("#api").append(singleRecipe);
         // var test = document.getElementById("api").innerHTML;
@@ -224,10 +220,18 @@ function getRecipes(values, queryString){
             //if there is time, should be able to set disable based on if recipe has been saved from
             //previous session
             this.disabled = true;
+            debugger;
 
-            $.post("/users/save_recipe", data, function(response) {
-                alert("the response from the server is: " + response + ". If 200 then that's good. If 500 then there was something wrong.");
+            
+
+            $.ajax({
+                url: "/users/save_recipe",
+                method: "POST",
+                data: data
+            }).done(function(res){
+                alert(res);
             });
+
         });
     });
 };

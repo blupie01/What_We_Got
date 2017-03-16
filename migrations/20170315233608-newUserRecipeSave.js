@@ -20,11 +20,35 @@ module.exports = {
             key: 'id'
           }
         },
-        recipes_id: {
+        recipe_title: {
           type: Sequelize.STRING,
           allowNull: true
         },
-        created_recipes_id: {
+        image_link: {
+          type: Sequelize.STRING,
+          allowNull: true
+        },
+        calories: {
+          type: Sequelize.INTEGER,
+          allowNull: true
+        },
+        diet_labels: {
+          type: Sequelize.STRING,
+          allowNull: true
+        },
+        health_labels: {
+          type: Sequelize.STRING,
+          allowNull: true
+        },
+        cautions: {
+          type: Sequelize.STRING,
+          allowNull: true
+        },
+        ingredients: {
+          type: Sequelize.STRING,
+          allowNull: true
+        },
+        instructions: {
           type: Sequelize.STRING,
           allowNull: true
         }
@@ -51,15 +75,39 @@ module.exports = {
             key: 'id'
           }
         },
-        recipes_id: {
+        recipe_title: {
           type: Sequelize.STRING,
           allowNull: true
         },
-        created_recipes_id: {
+        image_link: {
+          type: Sequelize.STRING,
+          allowNull: true
+        },
+        calories: {
+          type: Sequelize.INTEGER,
+          allowNull: true
+        },
+        diet_labels: {
+          type: Sequelize.STRING,
+          allowNull: true
+        },
+        health_labels: {
+          type: Sequelize.STRING,
+          allowNull: true
+        },
+        cautions: {
+          type: Sequelize.STRING,
+          allowNull: true
+        },
+        ingredients: {
+          type: Sequelize.STRING,
+          allowNull: true
+        },
+        instructions: {
           type: Sequelize.STRING,
           allowNull: true
         }
       }
-    )  
+    )
   }
 };

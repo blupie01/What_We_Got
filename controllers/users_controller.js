@@ -3,7 +3,7 @@ var bcrypt = require("bcryptjs");
 var express = require("express");
 var mysql = require("mysql");
 
-var connection = require("../config/connection.js");
+
 
 // Path to models folder
 var models = require("../models");
@@ -81,6 +81,9 @@ router.post("/create", function(req, res) {
 });
 
 router.post("/save_recipe", function(req, res) {
+	console.log(req.body);
+
+	res.send(200);
 
 });
 
