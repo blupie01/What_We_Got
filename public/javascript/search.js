@@ -66,6 +66,8 @@ jQuery(function(){
 var values = [];
 $("#submit").on("click", function(event) {
     event.preventDefault();
+    $("#api_search").empty();
+
     for (var i = 1; i <= 7; i++) {
         var checkboxes = document.querySelectorAll('input[name=Int' + i + ']:checked');
         Array.prototype.forEach.call(checkboxes, function(el) {
@@ -205,10 +207,6 @@ function getRecipes(values, queryString){
         // console.log(recipeList);
         console.log(recipes);
 
-        $.post("/recipe_search/update_database", recipes, function(response) {
-            alert("the response from the server is: " + response + ". If 200 then that's good. If 500 then there was something wrong.");
-        });
-
         // return recipeList;
         // $("#api").append(singleRecipe);
         // var test = document.getElementById("api").innerHTML;
@@ -225,15 +223,13 @@ function getRecipes(values, queryString){
             //previous session
             this.disabled = true;
 
-            $.post("/users/save_recipe", data, function(response) {
-                alert("the response from the server is: " + response + ". If 200 then that's good. If 500 then there was something wrong.");
+            $.ajax({
+                url: "/users/save_recipe",
+                method: "POST",
+                data: data
+            }).done(function(res) {
+                alert(res);
             });
         });
     });
 };
-
-// $(".save").on("click", function(event) {
-//     // event.preventDefault();
-//     console.log("HERE");
-//     // console.log($(this).data);
-// });

@@ -3,8 +3,6 @@ var bcrypt = require("bcryptjs");
 var express = require("express");
 var mysql = require("mysql");
 
-var connection = require("../config/connection.js");
-
 // Path to models folder
 var models = require("../models");
 
@@ -81,7 +79,43 @@ router.post("/create", function(req, res) {
 });
 
 router.post("/save_recipe", function(req, res) {
+	console.log(req);
+	models.SavedRecipes.findAll({
+		where: {
+			user_id: req.session.user_id,
+			recipe_title: req.body.recipe_label
+		}
+	}).then(function(userSavedRecipe) {
+		console.log(userSavedRecipe);
+		if (userSavedRecipe == 0) {
+			var test = req.body.calories;
+			console.log("HERE");
+				console.log("HERE" + test.toString());
+			//diet labels
+				console.log(req.body["diet_labels[]"]);
+			//health_labels
+				console.log(req.body["health_labels[]"]);
+			//cautions
+				// console.log(req.body.cautions[0]);
+			//ingredients
+				// console.log(req.body.ingredients[0]);
 
+				console.log(req.body.url);
+			// models.SavedRecipes.create({
+			// 	user_id: req.session.user_id,
+			// 	recipe_title: req.body.recipe_label,
+			// 	image_link: req.body.img,
+			// 	calories: req.body.calories,
+			// 	diet_labels: req.body.diet_labels,
+			// 	health_labels: req.body.health_labels,
+			// 	cautions: req.body.cautions,
+			// 	ingredients: req.body.ingredients,
+			// 	instructions: req.body.url
+			// }).then(function() {
+			// 	res.send("Recipe Saved!");
+			// });
+		};
+	});
 });
 
 module.exports = router;
