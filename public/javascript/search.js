@@ -220,9 +220,6 @@ function getRecipes(values, queryString){
             //if there is time, should be able to set disable based on if recipe has been saved from
             //previous session
             this.disabled = true;
-            debugger;
-
-            
 
             $.ajax({
                 url: "/users/save_recipe",

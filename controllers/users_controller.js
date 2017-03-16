@@ -81,10 +81,30 @@ router.post("/create", function(req, res) {
 });
 
 router.post("/save_recipe", function(req, res) {
-	console.log(req.body);
+    models.SavedRecipes.findAll({
+        where: {
+            user_id: req.session.user_id,
+            recipe_title: req.body.recipe_label
+        }
+    }).then(function(user_recipe) {
+    	console.log(user_recipe);
+        if (user_recipe == 0) {
+        	models.SavedRecipes.create({
+        			user_id: req.session.user_id,
+        			recipe_title: req.body.recipe_label,
+			        image_link: req.body.img,
+			        calories: req.body.calories,
+			        diet_labels: req.body.diet_labels,
+			        health_labels: req.body.health_labels,
+			        cautions: req.body.cautions,
+			        ingredients: req.body.ingredients,
+			        instructions: req.body.url
 
-	res.send(200);
-
+           	}).then(function(){
+           		res.send("recipe saved");
+           	});
+    	};
+    });
 });
 
 module.exports = router;
