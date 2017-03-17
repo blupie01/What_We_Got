@@ -10,14 +10,4 @@ router.get('/', function(req, res) {
 	});
 });
 
-router.post("/search", function(req, res) {
-	// console.log("IN SEARCH HOME CONTROLLER");
-	res.render("home/home", {
-		logged_in: req.session.logged_in,
-	 	username: req.session.username,
-	 	user_id: req.session.user_id,
-		// recipes: recipeList
-	});
-});
-
 module.exports = router;

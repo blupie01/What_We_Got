@@ -1,0 +1,17 @@
+<h2>Saved Recipes</h2>
+{{#each recipes}}
+	<div class="recipe_container">
+		<p class="recipe_title">{{this.recipe_title}}</p>
+		<br>
+		<img src="{{image_link}}">
+		<br>
+		<p class="calories">Calories: {{calories}}</p>
+		<br>
+		<p class="health_labels">Health Labels: {{health_labels}}</p>
+		<br>
+		<p class="ingredients">Ingredients: {{ingredients}}</p>
+		<br>
+		<p>Instructions: <a href="{{instructions}}">HERE</a></p>
+		<br>
+	</div>
+{{/each}}
