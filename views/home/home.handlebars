@@ -1,71 +1,86 @@
-<div id="subheader">
+<div id="subheader" class="row center">
       {{#if logged_in}}
-            <p id="username">Welcome {{username}}!</p>
-            <a class="header-buttons" href="/users/saved_recipes/{{user_id}}">Saved Recipes</a>
-            <a class="header-buttons" href="/users/sign-out">Sign Out</a>
+            <h2 id="username">Welcome {{username}}!</h2>
+            <a class="btn-large waves-effect waves-light orange darken-1 hoverable" href="/users/saved_recipes/{{user_id}}">Saved Recipes</a>
+            <a class="btn-large waves-effect waves-light orange darken-1 hoverable" href="/users/sign-out">Sign Out</a>
       {{else}}
-            <a class="header-buttons" href="/users/sign-in">Sign In</a>
-            <a class="header-buttons" href="/users/new">Sign Up</a>
-            <p>If you really don't to sign in, please click on the following link: <a class="header-buttons" href="http://www.google.com">Search<a></p>
+            <div class="row" id="homePage"> 
+                  
+                     <h2 class="center-align">Sign In To Work The App</h2>
+                     <h2 class="center-align">Come on In</h2>
+          
+                  <a class="btn-large waves-effect waves-light orange darken-1 hoverable" href="/users/sign-in">Sign In</a>
+                  <a class="btn-large waves-effect waves-light orange darken-1 hoverable" href="/users/new">Sign Up</a></br>
+                  <h4>If you really don't to sign in, please click on the following link </h4> </br>  <a class="btn-large waves-effect waves-light orange darken-1 hoverable" href="http://www.google.com">Search <i class="Medium material-icons">search</i><a>
+            </div> <!-- closes content row  -->
+     
       {{/if}}
 </div>
-
 {{#if logged_in}}
-<div id="search-container">
-    <h2>Ingredients</h2>
-        <form id="ingredients-form" action="home/search" method="POST">
-            <h2>meats</h2>
-            <input type="checkbox" name="Int1" value="chicken"><span>chicken</span></input>
-            <input type="checkbox" name="Int1" value="beef"><span>beef</span></input>
-            <input type="checkbox" name="Int1" value="salmon"><span>salmon</span></input>
-            <input type="checkbox" name="Int1" value="pork"><span>pork</span></input>
-            <br>
-            <h2>fruits</h2>
-            <input type="checkbox" name="Int2" value="apples"><span>apples</span></input>
-            <input type="checkbox" name="Int2" value="bananas"><span>bananas</span></input>
-            <input type="checkbox" name="Int2" value="oranges"><span>oranges</span></input>
-            <input type="checkbox" name="Int2" value="grapes"><span>grapes</span></input>
-            <br>
-            <h2>vegetables</h2>
-            <input type="checkbox" name="Int3" value="carrots"><span>carrots</span></input>
-            <input type="checkbox" name="Int3" value="cabbage"><span>cabbage</span></input>
-            <input type="checkbox" name="Int3" value="lettuce"><span>lettuce</span></input>
-            <input type="checkbox" name="Int3" value="onion"><span>onion</span></input>
-            <input type="checkbox" name="Int3" value="potatoes"><span>potatoes</span></input>
-            <input type="checkbox" name="Int3" value="tomatoes"><span>tomatoes</span></input>
-            <input type="checkbox" name="Int3" value="corn"><span>corn</span></input>
-            <input type="checkbox" name="Int3" value="peppers"><span>peppers</span></input>
-            <br>
-            <h2>BREAD, CEREALS AND OTHER GRAIN PRODUCTS</h2>
-            <input type="checkbox" name="Int4" value="bread"><span>bread</span></input>
-            <input type="checkbox" name="Int4" value="cereal"><span>cereal</span></input>
-            <input type="checkbox" name="Int4" value="oatmeal"><span>oatmeal</span></input>
-            <input type="checkbox" name="Int4" value="pasta"><span>pasta</span></input>
-            <input type="checkbox" name="Int4" value="rice"><span>rice</span></input>
-            <br>
-            <h2>SEASONINGS</h2>
-            <input type="checkbox" name="Int5" value="salt"><span>salt</span></input>
-            <input type="checkbox" name="Int5" value="chicken broth"><span>Chicken Broth</span></input>
-            <input type="checkbox" name="Int5" value="beef broth"><span>beef broth</span></input>
-            <input type="checkbox" name="Int5" value="garlic powder"><span>garlic powder</span></input>
-            <input type="checkbox" name="Int5" value="ketchup"><span>ketchup</span></input>
-            <input type="checkbox" name="Int5" value="vinegar"><span>vinegar</span></input>
-            <input type="checkbox" name="Int5" value="italian seasoning"><span>italian seasoning</span></input>
-            <input type="checkbox" name="Int5" value="mustard"><span>mustard</span></input>
-            <br>
-            <h2>OILS</h2>
-            <input type="checkbox" name="Int6" value="olive oil"><span>Olive Oil</span></input>
-            <input type="checkbox" name="Int6" value="cooking oil"><span>cooking oil</span></input>
-            <br>
-            <h2>MILK AND MILK PRODUCTS</h2>
-            <input type="checkbox" name="Int7" value="cheese"><span>cheese</span></input>
-            <input type="checkbox" name="Int7" value="milk"><span>milk</span></input>
-            <input type="checkbox" name="Int7" value="yogurt"><span>yogurt</span></input>
-            <input type="checkbox" name="Int7" value="butter"><span>butter</span></input>
-            <br>
-            </br>
-            <button id="submit" type="submit">Submit</button>
-        </form>
-    <div id="api_search"></div>
+<div class="container">
+      <div id="search-container">
+          <h2 class="center-align">Ingredients</h2>
+              <form id="ingredients-form" action="home/search" method="POST">
+                  <h3>Meats</h3>
+                  <input type="checkbox" name="Int1" value="chicken" id="chicken"><label for="chicken">Chicken</label>
+                  <input type="checkbox" name="Int1" value="beef" id="beef"><label for="beef">Beef</label>
+                  <input type="checkbox" name="Int1" value="salmon" id="salmon"><label for="salmon">Salmon</label>
+                  <input type="checkbox" name="Int1" value="pork" id="pork"><label for="pork">Pork</label>
+                  <br>
+                  <hr>
+                  <h3>Fruits</h3>
+                  <input type="checkbox" name="Int2" value="apples" id="apples"><label for="apples">Apples</label>
+                  <input type="checkbox" name="Int2" value="bananas" id="bananas"><label for="bananas">Bananas</label>
+                  <input type="checkbox" name="Int2" value="oranges" id="oranges"><label for="oranges">Oranges</label>
+                  <input type="checkbox" name="Int2" value="grapes" id="grapes"><label for="grapes">Grapes</label>
+                  <br>
+                  <hr>
+                  <h3>Vegetables</h3>
+                  <input type="checkbox" name="Int3" value="carrots" id="carrots"><label for="carrots">Carrots</label>
+                  <input type="checkbox" name="Int3" value="cabbage" id="cabbage"><label for="cabbage">Cabbage</label> 
+                  <input type="checkbox" name="Int3" value="lettuce" id="lettuce"><label for="lettuce">Lettuce</label>
+                  <input type="checkbox" name="Int3" value="onion" id="onion"><label for="onion">Onion</label>
+                  <input type="checkbox" name="Int3" value="potatoes" id="potatoes"><label for="potatoes">Potatoes</label>
+                  <input type="checkbox" name="Int3" value="tomatoes" id="tomatoes"><label for="tomatoes">Tomatoes</label>
+                  <input type="checkbox" name="Int3" value="corn" id="corn"><label for="corn">Corn</label>
+                  <input type="checkbox" name="Int3" value="peppers" id="peppers"><label for="peppers">Peppers</label>
+                  <br>
+                  <hr>
+                  <h3>Bread, Cereals and Other Grain Products</h3>
+                  <input type="checkbox" name="Int4" value="bread" id="bread"><label for="bread">Bread</label>
+                  <input type="checkbox" name="Int4" value="cereal" id="cereal"><label for="cereal">Cereal</label>
+                  <input type="checkbox" name="Int4" value="oatmeal" id="oatmeal"><label for="oatmeal">Oatmeal</label>
+                  <input type="checkbox" name="Int4" value="pasta" id="pasta"><label for="pasta">Pasta</label>
+                  <input type="checkbox" name="Int4" value="rice" id="rice"><label for="rice">Rice</label>
+                  <br>
+                  <hr>
+                  <h3>Seasonings</h3>
+                  <input type="checkbox" name="Int5" value="salt" id="salt"><label for="salt">Salt</label>
+                  <input type="checkbox" name="Int5" value="chicken broth" id="chicken broth"><label for="Chicken Broth">Chicken Broth</label>
+                  <input type="checkbox" name="Int5" value="beef broth" id="beef broth"><label for="beef broth">Beef Broth</label>
+                  <input type="checkbox" name="Int5" value="garlic powder" id="garlic powder"><label for="garlic powder">Garlic Powder</label>
+                  <input type="checkbox" name="Int5" value="ketchup" id="ketchup"><label for="ketchup">Ketchup</label>
+                  <input type="checkbox" name="Int5" value="vinegar" id="vinegar"><label for="vinegar">Vinegar</label>
+                  <input type="checkbox" name="Int5" value="italian seasoning"id="italian seasoning"><label for="italian seasoning">Italian Seasoning</label>
+                  <input type="checkbox" name="Int5" value="mustard" id="mustard"><label for="mustard">Mustard</label>
+                  <br>
+                  <hr>
+                  <h3>Oils</h3>
+                  <input type="checkbox" name="Int6" value="olive oil" id="olive oil"><label for="olive oil">Olive Oil</label>
+                  <input type="checkbox" name="Int6" value="cooking oil" id="cooking oil"><label for="cooking oil">Cooking Oil</label>
+                  <br>
+                  <hr>
+                  <h3>Dairy Products</h3>
+                  <input type="checkbox" name="Int7" value="cheese" id="cheese"><label for="cheese">Cheese</label>
+                  <input type="checkbox" name="Int7" value="milk" id="milk"><label for="milk">Milk</label>
+                  <input type="checkbox" name="Int7" value="yogurt" id="yogurt"><label for="yogurt">Yogurt</label>
+                  <input type="checkbox" name="Int7" value="butter" id="butter"><label for="butter">Butter</label>
+                  <br>
+                  <hr>
+                  </br>
+                  <button class="btn-large waves-effect waves-light orange darken-1 hoverable center" id="submit" type="submit">Submit</button>
+              </form>
+          <div id="api_search"></div>
+      </div>
 </div>
 {{/if}}

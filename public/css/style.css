@@ -1,63 +1,150 @@
-@font-face {
-	font-family: coffee_and_milk;
-	src: url("fonts/coffee&milk.ttf");
-}
-
-@font-face {
-	font-family: calm_waters;
-	src: url("fonts/calm_waters.otf");
-}
-
-@font-face {
-	font-family: gloss_and_bloom;
-	src: url("fonts/gloss_and_bloom.ttf");
-}
-
-@font-face {
-	font-family: shadded_south;
-	src: url("fonts/shadded_south.ttf");
-}
-
-@font-face {
-	font-family: littlekid;
-	src: url("fonts/littlekid.woff");
-}
 
 body {
-
+	font-family: 'Taviraj', serif;
 }
 
-header {
-	/*padding: 30px 0px;*/
-	background-color: #9340ed;
-	text-align: center;
-}
 
 #main-logo {
-	font-family: coffee_and_milk;
+	
 	font-size: 5em;
-	/*background-color: #9340ed;*/
+	background-color: #9340ed;
 	color: #2be2d6;
 	margin-bottom: 15px;
 
 }
 
-#subheader {
-	/*position: relative;*/
-	/*top: 10px;*/
-	/*text-align: center;*/
-}
 
 #username {
-	font-family: littlekid;
+	font-family: 'Taviraj', serif;
+	font-weight: 600;
+	font-size: 3em;
+	color: black;
+}
+
+
+/***************Menu area*************/
+
+#name h1 {
+	font-family: 'Taviraj', serif;
+	font-weight: 600;
+	font-size: 3.5em;
+	color: white;
+	padding-left: 1%;
+}
+
+
+
+.fa {
+	color: white;
+}
+
+.fa:hover{
+	color: #fb8c00;
+}
+
+
+/**********Main Page**************/
+
+
+#homePage h1, h2{
+	color:black;
+
+}
+
+#homePage {
+	margin-bottom: 25%;
+}
+
+ .parallax-container {
+      height: auto;
+      width: 100%;
+      padding-top: 5%;
+
+  }
+
+.create-update-form {
+	padding: 2%;
+}
+
+.create-update-form label{
+	font-size: 1.5em;
+	font-weight: bold;
+	color: white;
+}
+
+#signUp {
+	background: white;
+	margin-top: 10%;
+	margin-bottom: 30%;
+}
+
+#signUp label {
+	color:black;
+}
+
+#signIn {
+	background: white;
+	margin-top: 10%;
+	margin-bottom: 30%;
+}
+
+#signIn label {
+	color:black;
 	font-size: 2em;
 }
 
-.header-buttons {
-	font-size: 2em;
-	font-family: calm_waters;
-	background-color: blue;
-	padding: 0px 40px;
-	color: white;
-	margin: 55px 0px;
+#ingredients-form {
+	text-align: center;
+	background-color: white;
+	padding: 1%;
+	margin-bottom: 1%;
 }
+
+#ingredients-form h3 {
+	text-align: center;
+}
+
+#ingredients-form label {
+	color: black;
+	margin-left: 1%;
+	margin-right: 1%;
+	margin-top: 1%;
+	font-size: 1.5em;
+	background-color: white;
+
+}
+
+hr {
+	color:#fb8c00;
+	background-color: #fb8c00;
+	height: 3px;
+}
+
+#search-container h2{
+	font-family: 'Taviraj', serif;
+	font-weight: 600;
+	font-size: 3em;
+	color: black;
+}
+
+/*************Footer*******************/
+#footerBot {
+	background-color: #212121;
+	color: white;
+	text-align: center;
+}
+
+#footerLetters a {
+	color: white;
+}
+
+
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }

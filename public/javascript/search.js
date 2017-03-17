@@ -1,3 +1,7 @@
+$(document).ready(function(){
+    $(".button-collapse").sideNav();
+    $('.parallax').parallax();
+}) 
 jQuery(function(){
     var max = 1;
     var checkboxes = $('input[name="Int1"]');
