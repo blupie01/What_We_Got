@@ -162,6 +162,8 @@ router.post("/save_recipe", function(req, res) {
 			}).then(function() {
 				res.send("Recipe Saved!");
 			});
+		} else {
+			res.send("You already have this recipe!");
 		};
 	});
 });
