@@ -16,8 +16,6 @@ router.get("/new", function(req, res) {
 router.get("/sign-in", function(req, res) {
 	res.render("users/sign_in");
 });
-//-------------------------------------------------------------
-
 
 router.get("/saved_recipes/:user_id", function(req, res) {
 	models.SavedRecipes.findAll({
@@ -25,21 +23,19 @@ router.get("/saved_recipes/:user_id", function(req, res) {
 			user_id: req.session.user_id
 		}
 	}).then(function(recipes) {
-		console.log(recipes.health_labels);
-		var fixed_health_labels = (recipes.health_labels).split(",");
-		console.log(recipes.ingredients);
-		var fixed_ingredients = (recipes.ingredients).split(",");
 		res.render("users/saved_recipes", {
 			logged_in: req.session.logged_in,
-			recipes: recipes,
-			health_labels: fixed_health_labels,
-			ingredients: fixed_ingredients
+			username: req.session.username,
+			user_id: req.session.user_id,
+			recipes: recipes
 		});
 	});
 });
 
+router.get("/search", function(req, res) {
+	res.redirect("/home");
+});
 
-//----------------------------------------------------------------
 router.get("/sign-out", function(req, res) {
 	req.session.destroy(function(err) {
 		res.redirect("/home");
