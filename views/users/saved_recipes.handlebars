@@ -11,7 +11,7 @@
 
 {{#each recipes}}
 	<div class="recipe_container">
-		<p class="recipe_title">{{this.recipe_title}}</p>
+		<p class="recipe_title" name="{{this.recipe_title}}">{{this.recipe_title}}</p>
 		<br>
 		<img src="{{image_link}}">
 		<br>
@@ -24,7 +24,7 @@
 		<p>Instructions: <a href="{{instructions}}">HERE</a></p>
 		<br>
 		<br>
-		<form action="/user/saved_recipes/{{user_id}}">
+		<form action="/users/saved_recipes/{{user_id}}/{{id}}?_method=DELETE" method="POST">
 			<button type="submit" class="delete_button">Delete this recipe</button>
 		</form>
 	</div>

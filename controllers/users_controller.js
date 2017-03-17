@@ -166,15 +166,14 @@ router.post("/save_recipe", function(req, res) {
 	});
 });
 
-router.delete("/saved_recipes/:user_id", function(req, res) {
-	console.log(req);
+router.delete("/saved_recipes/:user_id/:id", function(req, res) {
+	console.log(req.body);
 	models.SavedRecipes.destroy({
 		where: {
-			user_id: req.session.user_id,
-			recipe_title: req.body.recipe_label
+			id: req.params.id
 		}
 	}).then(function() {
-		res.redirect("/saved_recipe/:user_id")
+		res.redirect("/users/saved_recipes/" + req.session.user_id);
 	});
 });
 
