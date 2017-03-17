@@ -81,6 +81,7 @@ $("#submit").on("click", function(event) {
     values = [];
     //clear form
     $("input[type='checkbox']").prop("checked", false);
+    $("input[type='checkbox']").prop("disabled", false);
 });
 
 function getRecipes(values, queryString){
