@@ -66,6 +66,8 @@ jQuery(function(){
 var values = [];
 $("#submit").on("click", function(event) {
     event.preventDefault();
+    $("#api_search").empty();
+
     for (var i = 1; i <= 7; i++) {
         var checkboxes = document.querySelectorAll('input[name=Int' + i + ']:checked');
         Array.prototype.forEach.call(checkboxes, function(el) {
@@ -80,6 +82,16 @@ $("#submit").on("click", function(event) {
     //clear form
     $("input[type='checkbox']").prop("checked", false);
 });
+// function deleteRecipe() {
+//     var id = $(this).data("user_id");
+//     $.ajax({
+//       method: "DELETE",
+//       url: "/user/saved_recipes/" + user_id
+//     })
+//     .done(function() {
+//       getRecipes();
+//     });
+//   }
 
 function getRecipes(values, queryString){
     $.ajax({
@@ -225,16 +237,9 @@ function getRecipes(values, queryString){
                 url: "/users/save_recipe",
                 method: "POST",
                 data: data
-            }).done(function(res){
+            }).done(function(res) {
                 alert(res);
             });
-
         });
     });
 };
-
-// $(".save").on("click", function(event) {
-//     // event.preventDefault();
-//     console.log("HERE");
-//     // console.log($(this).data);
-// });

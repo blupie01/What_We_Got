@@ -1,7 +1,7 @@
 // REQUIRED NPM PACKAGES
 var bcrypt = require("bcryptjs");
 var express = require("express");
-var mysql = require("mysql");
+// var mysql = require("mysql");
 
 // Path to models folder
 var models = require("../models");
@@ -15,6 +15,25 @@ router.get("/new", function(req, res) {
 
 router.get("/sign-in", function(req, res) {
 	res.render("users/sign_in");
+});
+
+router.get("/saved_recipes/:user_id", function(req, res) {
+	models.SavedRecipes.findAll({
+		where: {
+			user_id: req.session.user_id
+		}
+	}).then(function(recipes) {
+		res.render("users/saved_recipes", {
+			logged_in: req.session.logged_in,
+			username: req.session.username,
+			user_id: req.session.user_id,
+			recipes: recipes
+		});
+	});
+});
+
+router.get("/search", function(req, res) {
+	res.redirect("/home");
 });
 
 router.get("/sign-out", function(req, res) {
@@ -92,9 +111,9 @@ router.post("/save_recipe", function(req, res) {
 			var diet_labels_list = "";
 				if (req.body["diet_labels[]"] == null) {
 					var diet_labels_list = "";
-				} else if (req.body["diet_labels[]"].length > 2) {
-					var diet_labels_fixed = (req.body["diet_labels[]"]).join();
-					diet_labels_list = diet_labels_fixed
+				// } else if (req.body["diet_labels[]"].length > 2) {
+				// 	var diet_labels_fixed = (req.body["diet_labels[]"]).join();
+				// 	diet_labels_list = diet_labels_fixed;
 				} else {
 					for (var i = 0; i < req.body["diet_labels[]"].length; i++) {
 						diet_labels_list += req.body["diet_labels[]"][i] + ", ";
@@ -104,16 +123,16 @@ router.post("/save_recipe", function(req, res) {
 				
 				// console.log(diest_lab);
 			//health_labels
-				var health_labels_list = (req.body["health_labels[]"]).join();
-				var health_labels_fix = health_labels_list;
+				var health_labels_fix = (req.body["health_labels[]"]).join();
+				var health_labels_list = health_labels_fix;
 				// console.log(test3);
 			//cautions
 				var cautions_list = "";
 				if (req.body["cautions[]"] == null) {
 					var cautions_list = "";
-				} else if (req.body["cautions[]"].length > 2) {
-					var cautions_fixed = (req.body["cautions[]"]).join();
-					cautions_list = cautions_fixed
+				// } else if (req.body["cautions[]"].length > 2) {
+				// 	var cautions_fixed = (req.body["cautions[]"]).join();
+				// 	cautions_list = cautions_fixed
 				} else {
 					for (var i = 0; i < req.body["cautions[]"].length; i++) {
 						cautions_list += req.body["cautions[]"][i] + ", ";
@@ -123,8 +142,8 @@ router.post("/save_recipe", function(req, res) {
 				// var cautions_fix = cautions_list;
 				// console.log(test4);
 			//ingredients
-				var ingredients_list = (req.body["ingredients[]"]).join();
-				var ingredients_fix = ingredients_list;
+				var ingredients_fix = (req.body["ingredients[]"]).join();
+				var ingredients_list = ingredients_fix;
 				// for (var i = 0; i < test5.length; i++) {
 				// 	console.log(test5[i]);
 				// }
@@ -136,9 +155,9 @@ router.post("/save_recipe", function(req, res) {
 				image_link: req.body.img,
 				calories: req.body.calories,
 				diet_labels: diet_labels_list,
-				health_labels: health_labels_fix,
+				health_labels: health_labels_list,
 				cautions: cautions_list,
-				ingredients: ingredients_fix,
+				ingredients: ingredients_list,
 				instructions: req.body.url
 			}).then(function() {
 				res.send("Recipe Saved!");
@@ -146,5 +165,19 @@ router.post("/save_recipe", function(req, res) {
 		};
 	});
 });
+
+router.delete("/saved_recipes/:user_id", function(req, res) {
+	console.log(req);
+	models.SavedRecipes.destroy({
+		where: {
+			user_id: req.session.user_id,
+			recipe_title: req.body.recipe_label
+		}
+	}).then(function() {
+		res.redirect("/saved_recipe/:user_id")
+	});
+});
+
+
 
 module.exports = router;

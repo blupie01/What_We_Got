@@ -12,7 +12,6 @@ var methodOverride = require("method-override");
 var application_controller = require("./controllers/application_controller");
 var home_controller = require("./controllers/home_controller");
 var users_controller = require("./controllers/users_controller");
-// Testing search controller
 
 // Set variable to express
 var app = express();
@@ -45,8 +44,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use("/", application_controller);
 app.use("/home", home_controller);
 app.use("/users", users_controller);
-//test
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

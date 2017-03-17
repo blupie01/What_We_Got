@@ -1,1 +1,31 @@
-saved_recipes.handlebars
+<h2>Saved Recipes</h2>
+<div id="saved_recipes_subheader">
+    {{#if logged_in}}
+        <p id="username">{{username}}!</p>
+        <a class="header-buttons" href="/users/search">Search</a>
+        <a class="header-buttons" href="/users/sign-out">Sign Out</a>
+    {{else}}
+    	<p>You are not logged in.</p>
+    {{/if}}
+</div>
+
+{{#each recipes}}
+	<div class="recipe_container">
+		<p class="recipe_title">{{this.recipe_title}}</p>
+		<br>
+		<img src="{{image_link}}">
+		<br>
+		<p class="calories">Calories: {{calories}}</p>
+		<br>
+		<p class="health_labels">Health Labels: {{health_labels}}</p>
+		<br>
+		<p class="ingredients">Ingredients: {{ingredients}}</p>
+		<br>
+		<p>Instructions: <a href="{{instructions}}">HERE</a></p>
+		<br>
+		<br>
+		<form action="/user/saved_recipes/{{user_id}}">
+			<button type="submit" class="delete_button">Delete this recipe</button>
+		</form>
+	</div>
+{{/each}}

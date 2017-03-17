@@ -1,8 +1,7 @@
 <div id="subheader">
       {{#if logged_in}}
             <p id="username">Welcome {{username}}!</p>
-            <a class="header-buttons" href="#">Saved Recipes</a>
-            <a class="header-buttons" href="#">Your Recipes</a>
+            <a class="header-buttons" href="/users/saved_recipes/{{user_id}}">Saved Recipes</a>
             <a class="header-buttons" href="/users/sign-out">Sign Out</a>
       {{else}}
             <a class="header-buttons" href="/users/sign-in">Sign In</a>
