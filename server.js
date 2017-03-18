@@ -7,11 +7,6 @@ var bodyParser = require("body-parser");
 var session = require("express-session");
 var methodOverride = require("method-override");
 
-var port = process.env.PORT || 3000;
-
-app.listen(port, function() {
-    console.log('Our app is running on http://localhost:' + port);
-});
 
 // CONTROLLERS
 // NOT DONE
