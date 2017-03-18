@@ -1,29 +1,47 @@
-<h2>Saved Recipes</h2>
-<div id="saved_recipes_subheader">
-    {{#if logged_in}}
-        <p id="username">{{username}}!</p>
-        <a class="header-buttons" href="/users/search">Search</a>
-        <a class="header-buttons" href="/users/sign-out">Sign Out</a>
-    {{else}}
-    	<p>You are not logged in.</p>
-    {{/if}}
-</div>
 
-{{#each recipes}}
-	<div class="recipe_container">
-		<p class="recipe_title">{{this.recipe_title}}</p>
-		<br>
-		<img src="{{image_link}}">
-		<br>
-		<p class="calories">Calories: {{calories}}</p>
-		<br>
-		<p class="health_labels">Health Labels: {{health_labels}}</p>
-		<br>
-		<p class="ingredients">Ingredients: {{ingredients}}</p>
-		<br>
-		<p>Instructions: <a href="{{instructions}}">HERE</a></p>
-		<br>
-		<br>
-		<button class="delete_button">Delete this recipe</button>
+
+<div class="container">	
+	<h2 class="center-align">Saved Recipes</h2>
+	<div class="center-align" id="saved_recipes_subheader">
+	    {{#if logged_in}}
+	        <p id="username">{{username}}!</p>
+	        <a class="btn-large waves-effect waves-light orange darken-1 hoverable" href="/users/search">Search</a>
+	        <a class="btn-large waves-effect waves-light orange darken-1 hoverable" href="/users/sign-out">Sign Out</a>
+	    {{else}}
+	    	<p>You are not logged in.</p>
+	    {{/if}}
 	</div>
+</div>
+<div class="row">
+{{#each recipes}}
+<div class="recipe_container">
+	<div class="col s12 l4">
+	 <div class="card">
+		    <div class="card-image waves-effect waves-block waves-light">
+		      <img class="activator" src="{{image_link}}">
+		    </div>
+		    <div class="card-content">
+		      <span class="card-title activator grey-text text-darken-4" class="cardTitle">{{this.recipe_title}}<i class="material-icons right">more_vert</i></span>
+		      <p><a href="{{instructions}}">Cooking Instructions</a></p>
+		      <form action="/users/saved_recipes/{{user_id}}/{{id}}?_method=DELETE" method="POST">
+				<button type="submit" class="delete_button">Delete this recipe</button>
+				</form> 
+		    </div>
+		    <div class="card-reveal">
+		      <span class="card-title grey-text text-darken-4">{{this.recipe_title}}<i class="material-icons right">close</i></span>
+			     <p class="calories">Calories: {{calories}}</p>
+				<br>
+				<p class="health_labels">Health Labels: {{health_labels}}</p>
+				<br>
+				<p class="ingredients">Ingredients: {{ingredients}}</p>
+				<br>
+				<p>Instructions: <a href="{{instructions}}">HERE</a></p>
+		    </div>
+		</div> 
+		  
+	  </div>
+	</div>
+
 {{/each}}
+
+</div>
