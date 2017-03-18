@@ -73,7 +73,7 @@ body {
 }
 
 #signUp {
-	background: white;
+	background: #e0e0e0;
 	margin-top: 10%;
 	margin-bottom: 30%;
 }
@@ -83,7 +83,7 @@ body {
 }
 
 #signIn {
-	background: white;
+	background: #e0e0e0;
 	margin-top: 10%;
 	margin-bottom: 30%;
 }
@@ -127,11 +127,26 @@ hr {
 	color: black;
 }
 
+.single_recipe {
+	background-color: white;
+	padding: 1%;
+	text-align: center;
+	border-color: black;
+	border-radius: 3px;
+	margin: 1%;
+}
+
+.shopping_list_div {
+	background-color:#ffcc80;
+
+}
 /*************Footer*******************/
 #footerBot {
 	background-color: #212121;
 	color: white;
 	text-align: center;
+
+
 }
 
 #footerLetters a {
