@@ -56,9 +56,9 @@ router.post("/login", function(req, res) {
 				req.session.logged_in = true;
 				req.session.user_id = user.id;
 				req.session.username = user.username;
-				console.log("HERE " + req.session.logged_in);
-				console.log(req.session.user_id);
-				console.log(req.session.username);
+				// console.log("HERE " + req.session.logged_in);
+				// console.log(req.session.user_id);
+				// console.log(req.session.username);
 
 				res.redirect("/home");
 			} else {
@@ -98,7 +98,7 @@ router.post("/create", function(req, res) {
 });
 
 router.post("/save_recipe", function(req, res) {
-	console.log(req);
+	// console.log(req);
 	models.SavedRecipes.findAll({
 		where: {
 			user_id: req.session.user_id,
@@ -167,7 +167,7 @@ router.post("/save_recipe", function(req, res) {
 });
 
 router.delete("/saved_recipes/:user_id/:id", function(req, res) {
-	console.log(req.body);
+	// console.log(req.body);
 	models.SavedRecipes.destroy({
 		where: {
 			id: req.params.id

@@ -173,8 +173,8 @@ function getRecipes(values, queryString){
             // ingredient lines
             var ingredients = array[i].recipe.ingredientLines;
             dataHolder["ingredients"] = ingredients;
-            console.log("ALL INGREDIENTS");
-            console.log(ingredients);
+            // console.log("ALL INGREDIENTS");
+            // console.log(ingredients);
             var ingredientsDiv = $("<div class='ingredients'>");
             var ingredientsList = $("<ul class='ingredients_list'><h3>Ingredients</h3></ul>");
             for (var ingredient = 0; ingredient < ingredients.length; ingredient++) {
@@ -209,8 +209,8 @@ function getRecipes(values, queryString){
 
             singleRecipe.append("<br><button class='save btn-large waves-effect waves-light orange darken-1 hoverable' id=" + i + " value='" + array[i].recipe.label + "'>Save It!</button><br>");
 
-            console.log("HERE");
-            console.log(dataHolder);
+            // console.log("HERE");
+            // console.log(dataHolder);
             // console.log(singleRecipe);
             // recipeList.push(singleRecipe);
 
@@ -219,7 +219,7 @@ function getRecipes(values, queryString){
             $("#api_search").append(singleRecipe);
         };
         // console.log(recipeList);
-        console.log(recipes);
+        // console.log(recipes);
 
         // return recipeList;
         // $("#api").append(singleRecipe);
@@ -228,10 +228,10 @@ function getRecipes(values, queryString){
         $(".save").on("click", function(event) {
             event.preventDefault();
             var id = parseInt($(this).attr("id"));
-            console.log("STUFF", recipes[id]);
+            // console.log("STUFF", recipes[id]);
 
             var data = recipes[id];
-            console.log(data);
+            // console.log(data);
 
             //if there is time, should be able to set disable based on if recipe has been saved from
             //previous session
