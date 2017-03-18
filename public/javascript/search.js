@@ -79,7 +79,7 @@ $("#submit").on("click", function(event) {
         });
     };
     var searchTerms = values.join("+");
-    var queryString = "http://api.edamam.com/search?q=" + searchTerms + "&app_id=a99c054e&app_key=a6913d9b394ea2d13dbfe40ee6ef0621&from=0&to=9";
+    var queryString = "https://api.edamam.com/search?q=" + searchTerms + "&app_id=a99c054e&app_key=a6913d9b394ea2d13dbfe40ee6ef0621&from=0&to=9";
     getRecipes(values, queryString);
 
     values = [];
