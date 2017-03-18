@@ -10,7 +10,7 @@ var methodOverride = require("method-override");
 var port = process.env.PORT || 3000;
 
 app.listen(port, function() {
-    console.log('Our app is running on http://localhost:' + 3000);
+    console.log('Our app is running on http://localhost:' + port);
 });
 
 // CONTROLLERS
